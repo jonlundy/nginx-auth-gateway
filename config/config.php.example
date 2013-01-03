@@ -1,6 +1,8 @@
 <?php
 
-$config = [
+// ---- [ config/request.*.php ] -----
+
+return [
     'token' => [
         'environment_key'    => 'ENC_KEY', // The environment variable to use.
         'cookie' => [
@@ -11,15 +13,6 @@ $config = [
             'secure'   => true,
         ],
     ],
-    'cors' => [
-        'max_age' => 3600,
-        'methods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        'allowed' => [
-           // 'https://site.example.com',
-           // 'https://example.com',
-           // 'https://other.example.net',           
-        ]
-    ],
     'persist' => [
         'db' => [
             'database' => 1,
@@ -29,12 +22,28 @@ $config = [
             ],
         ],
     ],
+    'response' => [],
+];
+
+// ---- [ config/check.*.php ] -----
+
+return [
+    'cors' => [
+        'max_age' => 3600,
+        'methods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        'allowed' => [
+           // 'https://site.example.com',
+           // 'https://example.com',
+           // 'https://other.example.net',           
+        ]
+    ],
     'rules' => [
         'limits' => [
             [ 'prefix'  => 'RLIMIT',
               'header'  => 'X-Request-Limit', // Header to send to client
               'limit'   => 3000,
               'timeout' => 3600, ],
+              
             [ 'prefix'  => 'FLOOD',
               'header'  => 'X-Flood-Limit',
               'limit'   => 500,
@@ -42,7 +51,11 @@ $config = [
         ],
         'allow_anon' => 'true',
     ],
-    'response' => [],
+];
+
+// ---- [ config/auth.*.php ] -----
+
+return [
     'router' => [
         'routes' => [
             '/auth.login'  => '\Auth\Login',
@@ -60,6 +73,7 @@ $config = [
         ],
         'default' => 'https://site.example.com',
         'allow' => [ 
+           // 'https://example.com',
            // 'https://site.example.com',
          ],   
          'handler' => 'https://site.example.com/auth.ticket',    
