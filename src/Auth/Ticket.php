@@ -2,7 +2,7 @@
 
 use Request;
 
-set_include_path(get_include_path().':src/cas/source/');
+set_include_path(get_include_path().':vendor/cas/source/');
 require_once 'CAS.php';
 
 class Ticket {  

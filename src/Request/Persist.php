@@ -1,7 +1,7 @@
 <?php namespace Request;
 
 use Predis;
-require 'src/Predis/Predis.php';
+require 'vendor/Predis/Predis.php';
 
 //! ----------- [ Persist ] ----------------
 
