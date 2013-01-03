@@ -1,10 +1,12 @@
-<?php namespace Request;
+<?php namespace Check;
+
+use Request;
 
 //!--- [ Rules ] --------------
 
 class Rules
  {
-    use DependancyInjector;
+    use Request\DependancyInjector;
 
     protected $allow_anon = false;
 

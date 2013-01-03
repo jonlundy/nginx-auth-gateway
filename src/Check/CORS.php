@@ -1,10 +1,12 @@
-<?php namespace Request;
+<?php namespace Check;
+
+use Request;
 
 //!--- [ CORS ] --------------
 
 class CORS
 {
-  use DependancyInjector;
+  use Request\DependancyInjector;
   
   protected $allowed;
   protected $max_age;
