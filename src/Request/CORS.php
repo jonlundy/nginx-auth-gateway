@@ -13,8 +13,8 @@ class CORS
   public function init()
   {
       $config = $this->config;
-      $this->allowed = isset($config['allowed']) ? $config['allowed']->toArray() : array() ;
       $this->max_age = isset($config['max_age']) ? $config['max_age'] : null;
+      $this->allowed = isset($config['allowed']) ? $config['allowed']->toArray() : array() ;
       $this->methods = isset($config['methods']) ? $config['methods']->toArray() : array();
    }
 

@@ -10,17 +10,15 @@ trait DependancyInjector {
     protected $token;
     protected $cors;
     protected $rules;
-    protected $config0;
 
     public function __construct()
      {
         $items = func_get_args();
         
         foreach ($items as $di) {
-            $type = gettype($di) == 'object' ? get_class($di) : 'config';
+            $type = gettype($di) == 'object' ? get_class($di) : 'array';
             
              switch ($type){
-        //         case 'config':           $this->config   = $di; break;
                  case 'Request\Request':  $this->request  = $di; break;
                  case 'Request\Response': $this->response = $di; break;
                  case 'Request\Persist':  $this->persist  = $di; break;

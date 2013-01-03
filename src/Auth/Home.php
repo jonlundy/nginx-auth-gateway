@@ -1,8 +1,9 @@
-<?php
-namespace app;
+<?php namespace Auth;
+
+use Request;
 
 class Home {
-    use \Request\DependancyInjector;
+    use Request\DependancyInjector;
     
     public function get()
      {

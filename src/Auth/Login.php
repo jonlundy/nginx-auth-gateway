@@ -1,8 +1,9 @@
-<?php
-namespace Auth;
+<?php namespace Auth;
+
+use Request;
 
 class Login {
-    use \Request\DependancyInjector;
+    use Request\DependancyInjector;
 
     public function get()
      {

@@ -1,10 +1,12 @@
 <?php namespace Auth;
 
+use Request;
+
 set_include_path(get_include_path().':src/cas/source/');
 require_once 'CAS.php';
 
 class Ticket {  
-    use \Request\DependancyInjector;
+    use Request\DependancyInjector;
     
     public function get()
      {

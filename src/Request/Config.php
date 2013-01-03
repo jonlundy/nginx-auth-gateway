@@ -15,6 +15,7 @@ class Config implements \ArrayAccess
      {
          return $this->store;
      }
+     
     public function __get($name)
      {
          if (is_array($this->store)) {
@@ -28,16 +29,23 @@ class Config implements \ArrayAccess
          return null;
      } 
      
-    public function offsetSet($offset, $value) {
-
-    }
-    public function offsetExists($offset) {
+    public function offsetSet($offset, $value)
+     {
+        // Config is Read-Only.
+     }
+    
+    public function offsetExists($offset)
+     {
         return array_key_exists($offset,$this->store);
-    }
-    public function offsetUnset($offset) {
+     }
+    
+    public function offsetUnset($offset)
+     {
+        // Config is Read-Only.
+     }
 
-    }
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+     {
         return $this->__get($offset);
-    }     
+     }     
 }

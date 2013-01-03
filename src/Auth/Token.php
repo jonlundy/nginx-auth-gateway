@@ -1,7 +1,9 @@
 <?php namespace Auth;
 
+use Request;
+
 class Token {
-    use \Request\DependancyInjector;
+    use Request\DependancyInjector;
 
     public function get ()
      {
@@ -22,12 +24,12 @@ class Token {
 
 	 	$expires = $expires == 'N' ? null : (int) $expires; 
 
-		$params = array(
+		$params = [
 			'i' => $ident,
 			'a' => $aspect,
 			'c' => $client,
 			'e' => $expires
-		);				
+		];				
 		$token = $this->token->loadIdent($params);
 		
 		echo "?access_token=$token\n\n";
