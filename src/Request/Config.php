@@ -6,9 +6,16 @@ class Config implements \ArrayAccess
  {
     protected $store;
     
-    public function __construct($config)
+    public function __construct($config = null)
      {
-         $this->store = $config;
+        $this->store = [];
+        if ($config !== null) $this->merge($config);
+     }
+
+    public function merge($config)
+     {
+     //   var_dump($config);
+        $this->store = array_merge_recursive($this->store, $config);
      }
      
     public function toArray()

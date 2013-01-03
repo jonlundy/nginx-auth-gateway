@@ -50,8 +50,7 @@ class Token
         $ex = explode(' ',$this->request->header('Authorization'));
         if ($ex[0] == 'token') $token = $ex[1];
 
-    //    $token = $this->request->cookie('X-HRIT-ACCESS_TOKEN', $token);
-        $token = $this->request->cookie('X-HRIT-Access-Token', $token);
+        $token = $this->request->cookie($this->cookie['name'], $token);
         $token = $this->request->get('access_token', $token);
 
         if ($token !== null) {

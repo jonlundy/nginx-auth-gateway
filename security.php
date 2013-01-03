@@ -1,6 +1,7 @@
-<?php namespace Auth;
+<?php namespace App;
 
 use Request;
+use Check;
 
 chdir(__DIR__);
 
@@ -8,14 +9,20 @@ require 'src/Request/get_headers.php';
 require 'src/Request/get_query.php';
 require 'src/Request/get_autoloader.php';
 
-$config = new Request\Config(require 'config.php');
-
 $request  = new Request\Request  ();
+
+$env = $request->server('APP_ENV');
+
+$config = new Request\Config();
+$config->merge(require "config/request.$env.php");
+$config->merge(require "config/check.$env.php");
+
 $persist  = new Request\Persist  ($config->persist);
 $response = new Request\Response ($config->response, $request);
 $token    = new Request\Token    ($config->token,    $request, $response, $persist);
-$cors     = new Request\CORS     ($config->cors,     $request, $response);
-$rules    = new Request\Rules    ($config->rules,    $request, $response, $persist, $token);
+
+$cors     = new Check\CORS     ($config->cors,     $request, $response);
+$rules    = new Check\Rules    ($config->rules,    $request, $response, $persist, $token);
 
 if ($cors->doPreflight())   return $response->allow();
 if (!$rules->checkLimits()) return $response->deny(403);
