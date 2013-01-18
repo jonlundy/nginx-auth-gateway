@@ -12,4 +12,4 @@
 	url = git@github.com:nrk/predis.git
 [submodule "vendor/phpCAS"]
 	path = vendor/phpCAS
-	url = git@github.com:JonLundy/phpCAS.git
+	url = git@github.com:Jasig/phpCAS.git
