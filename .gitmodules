@@ -1,0 +1,9 @@
+[submodule "lib/Xepto"]
+	path = lib/Xepto
+	url = git@github.com:JonLundy/Xepto.git
+[submodule "lib/XeptoCheck"]
+	path = lib/XeptoCheck
+	url = git@github.com:JonLundy/XeptoCheck.git
+[submodule "lib/XeptoAuthCAS"]
+	path = lib/XeptoAuthCAS
+	url = git@github.com:JonLundy/XeptoAuthCAS.git
