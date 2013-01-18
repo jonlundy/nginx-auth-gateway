@@ -7,3 +7,9 @@
 [submodule "lib/XeptoAuthCAS"]
 	path = lib/XeptoAuthCAS
 	url = git@github.com:JonLundy/XeptoAuthCAS.git
+[submodule "vendor/Predis"]
+	path = vendor/Predis
+	url = git@github.com:nrk/predis.git
+[submodule "vendor/phpCAS"]
+	path = vendor/phpCAS
+	url = git@github.com:JonLundy/phpCAS.git
