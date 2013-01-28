@@ -1,1 +1,1 @@
-lib/XeptoCheck/public/app.php
+lib/XeptoAuthToken/public/app.php
